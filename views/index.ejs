@@ -16,8 +16,6 @@
 
       <ul class="nav navbar-nav">
         <li><a href="/">artfolio</a></li>
-        <li><a href="/Home/About">about</a></li>
-        <li><a href="/Home/Contact">contact</a></li>
       </ul>
     </div>
 
@@ -38,7 +36,7 @@
         <div class="fullscreen-bg">
             <div class="filter"></div>
             <video autoplay loop class="fullscreen-bg__video">
-                <source src="/Content/Videos/Draw-Something.webm" type="video/mp4" />
+                <source src="/videos/draw.webm" type="video/mp4" />
             </video>
 
             <div class="jumbotron text-center info">
@@ -50,16 +48,18 @@
             <div class="jumbotron text-center artistDiv ">
                 <h1> Are you a Artist? Click the image to sign up!</h1>
 
-                <a href='/Account/Register'><img src="/Content/Images/splash.jpg" alt="Artists" /></a>
+                <!--<a href='/Account/Register'><img src="/Content/Images/splash.jpg" alt="Artists" /></a>-->
             </div>
 
             <!--Buyer area-->
             <div class="jumbotron text-center BuyerDiv">
                 <h1 class="whiteText"> Already with us? Click the image to sign in!</h1>
 
-                <a href='/Account/Login'><img src="/Content/Images/splash.jpg" alt="Artists" /></a>
+                <!--<a href='/Account/Login'><img src="/Content/Images/splash.jpg" alt="Artists" /></a>-->
             </div>
         </div>
     </div>
 </div>
 
+<!-- footer -->
+<% include partials/footer.ejs %>
