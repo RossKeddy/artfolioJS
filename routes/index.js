@@ -22,4 +22,11 @@ router.get('/login', function(req, res, next) {
     });
 });
 
+/* GET artist page. */
+router.get('/artist', function(req, res, next) {
+    res.render('artist', {
+        title: 'Artist'
+    });
+});
+
 module.exports = router;
