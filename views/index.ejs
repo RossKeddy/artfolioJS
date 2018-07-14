@@ -1,11 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% include partials/header.ejs %>
+<!-- /header -->
+
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand fas fa-palette" href="~/Home/Index"></a>-->
+      <!-- Search Bar -->
+
+      <ul class="nav navbar-nav">
+        <li><a href="/">artfolio</a></li>
+        <li><a href="/Home/About">about</a></li>
+        <li><a href="/Home/Contact">contact</a></li>
+      </ul>
+    </div>
+
+    <div id="custom-search-input" >
+      <div style="text-align: right;">
+        <input type="text" class="  search-query form-control" placeholder="Search" />
+
+        <button class="searchButton" type="button"><a href="/Search">Go</a></button>
+
+      </div>
+    </div>
+  </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>
+<div class="container body-content">
+
+    <div class="homepage">
+        <div class="fullscreen-bg">
+            <div class="filter"></div>
+            <video autoplay loop class="fullscreen-bg__video">
+                <source src="/Content/Videos/Draw-Something.webm" type="video/mp4" />
+            </video>
+
+            <div class="jumbotron text-center info">
+                <h1>Artfolio</h1>
+                <p class="lead blackText">Artfolio is a revolutonary site for artist to expose themselves and their work to the world</p>
+            </div>
+
+            <!-- Artists area-->
+            <div class="jumbotron text-center artistDiv ">
+                <h1> Are you a Artist? Click the image to sign up!</h1>
+
+                <a href='/Account/Register'><img src="/Content/Images/splash.jpg" alt="Artists" /></a>
+            </div>
+
+            <!--Buyer area-->
+            <div class="jumbotron text-center BuyerDiv">
+                <h1 class="whiteText"> Already with us? Click the image to sign in!</h1>
+
+                <a href='/Account/Login'><img src="/Content/Images/splash.jpg" alt="Artists" /></a>
+            </div>
+        </div>
+    </div>
+</div>
+
