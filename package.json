@@ -11,9 +11,35 @@
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
+    "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
     "jquery": "^3.3.1",
+    "mongoose": "^5.2.3",
     "morgan": "~1.9.0",
+    "nodemon": "^1.18.2",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
     "popper.js": "^1.14.3"
-  }
+  },
+  "description": "artfolio! created by Ross Keddy, Branden Shirriff, & Misha Okner",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RossKeddy/artfolioJS.git"
+  },
+  "keywords": [
+    "artfolio"
+  ],
+  "author": "Ross Keddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RossKeddy/artfolioJS/issues"
+  },
+  "homepage": "https://github.com/RossKeddy/artfolioJS#readme"
 }
