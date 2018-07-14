@@ -38,11 +38,20 @@ router.post('/register', function(req, res, next) {
         });
 });
 
-/* GET login page. */
+/* GET login page */
 router.get('/login', function(req, res, next) {
+
+    // get session messages
+    var messages = req.session.messages || [];
+
     res.render('login', {
-        title: 'Login'
+        title: 'Login',
+        messages: messages,
+        user: req.user
     });
+
+    // clear the messages out of the session
+    req.session.messages = null;
 });
 
 /* POST login page */
@@ -56,6 +65,13 @@ router.post('/login', passport.authenticate('local', {
 router.get('/logout', function(req, res, next) {
     req.logout();
     res.redirect('/login');
+});
+
+/* GET artist page. */
+router.get('/artist', function(req, res, next) {
+    res.render('artist', {
+        title: 'artfolio'
+    });
 });
 
 module.exports = router;

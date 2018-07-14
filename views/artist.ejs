@@ -1,0 +1,61 @@
+<% include partials/header.ejs %>
+<!-- /header -->
+
+<!-- Static navbar -->
+
+<<div class="card profile-card-orientation">
+    <img src="/Content/Images/photographer.jpg" alt="Bobby" style="width:100%">
+    <h1>@User.Identity.GetFirstName() @User.Identity.GetLastName()</h1>
+    <p class="title">@User.Identity.GetProfession()</p>
+    <p>@User.Identity.GetCountry(), @User.Identity.GetCity(), @User.Identity.GetProvinceState() </p>
+    <div style="margin: 24px 0;">
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+    </div>
+    <p><button class="profile-button">Contact</button></p>
+    <p>@User.Identity.Name</p>
+    <p><button class="profile-button">Purchase</button></p>
+    <p><button class="profile-button">About Artist</button></p>
+    <p>about artist description placeholder</p>
+</div>
+
+<div align="center">
+    <h2>Gallery</h2>
+    <div class="galleria">
+        <img src="/images/brushstroke.jpg" data-title="My title" data-description="My description">
+        <img src="/images/brushstroke.jpg">
+        <img src="/images/brushstroke.jpg">
+        <img src="/images/brushstroke.jpg">
+    </div>
+</div>
+<script>
+    (function () {
+        Galleria.loadTheme('/Scripts/galleria/themes/classic/galleria.classic.min.js');
+        Galleria.run('.galleria', {
+
+            // configure
+            autoplay: true,
+            lightbox: true,
+            idleMode: true,
+
+            // extend theme
+            extend: function () {
+                var gallery = this; // "this" is the gallery instance
+
+                //fullscreen button
+                this.addElement('fscr');
+                this.appendChild('stage', 'fscr');
+                var fscr = this.$('fscr').click(function () {
+                    gallery.toggleFullscreen();
+                });
+
+                // this.addIdleState(this.get('fscr'), { opacity:0 });
+            }
+        });
+    }());
+</script>
+
+<!-- footer -->
+<% include partials/footer.ejs %>
