@@ -11,4 +11,9 @@ router.get('/register', function(req, res, next) {
     res.render('register', { title: 'artfolio' });
 });
 
+/* GET Register page. */
+router.get('/signIn', function(req, res, next) {
+    res.render('signIn', { title: 'artfolio' });
+});
+
 module.exports = router;
