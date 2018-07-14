@@ -3,17 +3,23 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'artfolio' });
+  res.render('index', {
+      title: 'artfolio'
+  });
 });
 
 /* GET Register page. */
 router.get('/register', function(req, res, next) {
-    res.render('register', { title: 'artfolio' });
+    res.render('register', {
+        title: 'Register'
+    });
 });
 
-/* GET Register page. */
-router.get('/signIn', function(req, res, next) {
-    res.render('signIn', { title: 'artfolio' });
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+    res.render('login', {
+        title: 'Login'
+    });
 });
 
 module.exports = router;
