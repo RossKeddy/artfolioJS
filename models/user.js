@@ -5,12 +5,20 @@
 var mongoose = require('mongoose');
 
 // define the  schema
-var locationSchema = new mongoose.Schema({
-    name: {
+var userSchema = new mongoose.Schema({
+    email: {
         type: String,
-        required: 'No name entered'
+        required: 'No email entered'
     },
+    firstname: {
+        type: String,
+        required: 'No first name entered'
+    },
+    lastname: {
+        type: String,
+        required: 'No last name entered'
+    }
 });
 
-// make the class definition public as ""
-//module.exports = mongoose.model('Location', locationSchema);
+// make the class definition public as "Location"
+module.exports = mongoose.model('User', userSchema);

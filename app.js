@@ -7,7 +7,43 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//
 var app = express();
+
+// connect to mongodb
+var mongoose = require('mongoose');
+var config = require('./config/globalVars');
+mongoose.connect(config.db);
+
+// passport configuration for authentication
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+var localStrategy = require('passport-local').Strategy;
+
+// enable the app to use these passport classes
+app.use(flash());
+
+// configure sessions
+app.use(session( {
+    secret: config.secret,
+    resave: true,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// connect passport to the Account model
+var Account = require('./models/account');
+passport.use(Account.createStrategy());
+
+// manage sessions through the db
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +79,21 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000);
-console.log("Connected - running on port 3000");
+console.log(" ");
+console.log("******************************************************************");
+console.log("     Connected - running on port 3000 ");
+console.log("     v1.0 Stable Running");
+console.log("     Copyright Artfolio ");
+console.log("     Created by the artfolio monkeys  ");
+console.log(" ");
+console.log("  ##   #####  ##### ######  ####  #      #  #### ");
+console.log(" #  #  #    #   #   #      #    # #      # #    #");
+console.log("#    # #    #   #   #####  #    # #      # #    #");
+console.log("###### #####    #   #      #    # #      # #    #");
+console.log("#    # #   #    #   #      #    # #      # #    #");
+console.log("#    # #    #   #   #       ####  ###### #  #### ");
+console.log(" ");
+console.log("******************************************************************");
+console.log(" ");
 
 module.exports = app;

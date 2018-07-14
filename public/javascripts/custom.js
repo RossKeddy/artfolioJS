@@ -27,6 +27,21 @@ $(function(){
     });
 });
 
+//Uses the JQuery validation plugin to make sure the passwords match
+var validator = $('#registerForm').validate({
+    rules: {
+        confirm: {
+            required: true,
+            equalTo: '#password'
+        }
+    },
+    messages: {
+        confirm: {
+            equalTo: 'Your passwords do not match'
+        }
+    }
+});
+
 //Progress Bars
 /*var bar = new ProgressBar.Circle(".skill-circle", {
     color: '#aaa',
