@@ -40,6 +40,10 @@ textarea {
     max-width: 280px;
 }
 
+/* css for images*/
+.SignUpImage {
+    height: 40%;
+}
 
 /* The sidebar menu */
 .topnav {
