@@ -5,7 +5,7 @@
 
 <<div class="card profile-card-orientation">
     <img src="/images/photographer.jpg" alt="Bobby" style="width:100%">
-    <h1>@User.Identity.GetFirstName() @User.Identity.GetLastName()</h1>
+    <h4>@User.Identity.GetFirstName() @User.Identity.GetLastName()</h4>
     <p class="title">@User.Identity.GetProfession()</p>
     <p>@User.Identity.GetCountry(), @User.Identity.GetCity(), @User.Identity.GetProvinceState() </p>
     <div style="margin: 24px 0;">
@@ -32,7 +32,7 @@
 </div>
 <script>
     (function () {
-        Galleria.loadTheme('/javascripts/galleria/themes/classic/galleria.classic.min.js');
+        Galleria.loadTheme('javascripts/galleria/themes/classic/galleria.classic.min.js');
         Galleria.run('.galleria', {
 
             // configure
