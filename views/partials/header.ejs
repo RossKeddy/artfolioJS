@@ -17,7 +17,13 @@
     <meta name="description" content="artfolio is a website that connects artists to the world">
 
     <title><%= title %></title>
-
+    <% if (user) {
+        //I like to watch you...
+        console.log(" ");
+        console.log(user.username + " accessed " + title);
+        console.log(" ");
+    } %>
+    
     <!-- CSS -->
     <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css">
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
@@ -40,6 +46,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">artfolio</a></li>
                 <% if (user) { %>
+                    <p>Signed in as <%= user.username %></p>
                     <li><a href="/logout">Logout</a></li>
                 <% } %>
             </ul>
@@ -55,4 +62,3 @@
 
     </div><!--/.container-fluid -->
 </nav>
-
