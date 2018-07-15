@@ -6,8 +6,11 @@ var mongoose = require('mongoose');
 // reference passport-local-mongoose for user authentication
 var plm = require('passport-local-mongoose');
 
+// define the user schema
 var AccountSchema = new mongoose.Schema({
-    //Lets slap the authid and date into the db when these dudes get made
+    username: String,
+    firstname: String,
+    lastname: String,
     oauthID: String,
     created: Date
 });

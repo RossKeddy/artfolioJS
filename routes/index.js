@@ -72,7 +72,8 @@ router.get('/logout', function(req, res, next) {
 /* GET artist page. */
 router.get('/artist', function(req, res, next) {
     res.render('artist', {
-        title: 'artfolio'
+        title: 'artfolio',
+        user: req.user
     });
 });
 
