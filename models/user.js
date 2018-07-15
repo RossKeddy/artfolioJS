@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 // define the  schema
 var userSchema = new mongoose.Schema({
-    email: {
+    username: {
         type: String,
         required: 'No email entered'
     },

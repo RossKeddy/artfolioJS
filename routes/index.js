@@ -8,14 +8,16 @@ var passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-      title: 'artfolio'
+      title: 'artfolio',
+      user: req.user
   });
 });
 
-/* GET Register page. */
+/* GET register page. */
 router.get('/register', function(req, res, next) {
     res.render('register', {
-        title: 'Register'
+        title: 'Register',
+        user: req.user
     });
 });
 
@@ -23,7 +25,7 @@ router.get('/register', function(req, res, next) {
 router.post('/register', function(req, res, next) {
     //save the new user
     Account.register(new Account( {
-            email: req.body.email,
+            username: req.body.username,
             firstname: req.body.firstname,
             lastname: req.body.lastname
         }),
