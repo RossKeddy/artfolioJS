@@ -14,12 +14,33 @@
         <a href="#"><i class="fa fa-linkedin"></i></a>
         <a href="#"><i class="fa fa-facebook"></i></a>
     </div>
-    <p><button class="profile-button">Contact</button></p>
-    <p>@User.Identity.Name</p>
-    <p><button class="profile-button">Purchase</button></p>
-    <p><button class="profile-button">About Artist</button></p>
-    <p>about artist description placeholder</p>
+    <button class="profile-button accordion">Contact</button>
+    <div class="panel">
+        <p>@User.Identity.Name</p>
+    </div>
+    <button class="profile-button accordion">About Artist</button>
+    <div class="panel">
+        <p>about artist description placeholder</p>
+    </div>
+    <button class="profile-button">Purchase</button>
 </div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 
 <div align="center">
     <h2>Gallery</h2>

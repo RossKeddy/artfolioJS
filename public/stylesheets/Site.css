@@ -266,6 +266,7 @@ button {
     margin: auto;
     text-align: center;
     font-family: arial;
+    background-color: #D7B493
 }
 
 .title {
@@ -358,3 +359,29 @@ div.desc {
     .myTable tr.header, .myTable tr:hover {
             background-color: #f1f1f1;
     }
+
+/* Accordion tabs*/
+.accordion {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 8px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
