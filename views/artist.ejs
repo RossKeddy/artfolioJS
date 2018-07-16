@@ -6,9 +6,28 @@
 <div class="artist-background">
 <div class="card profile-card-orientation">
     <img src="/images/photographer.jpg" alt="Bobby" style="width:100%">
-    <h4>@User.Identity.GetFirstName() @User.Identity.GetLastName()</h4>
-    <p class="title">@User.Identity.GetProfession()</p>
-    <p>@User.Identity.GetCountry(), @User.Identity.GetCity(), @User.Identity.GetProvinceState() </p>
+
+    <h4>
+        <% if (user) {  %>
+        <%= user.firstname %>
+        <%= user.lastname %>
+        <% } %>
+    </h4>
+
+    <p class="title">
+        <% if (user) {  %>
+        <%= user.profession %>
+        <% } %>
+    </p>
+
+    <p>
+        <% if (user) {  %>
+        <%= user.city %>,
+        <%= user.provinceState %>,
+        <%= user.country %>
+        <% } %>
+    </p>
+
     <div style="margin: 24px 0;">
         <a href="#"><i class="fa fa-dribbble social-media-icons"></i></a>
         <a href="#"><i class="fa fa-twitter social-media-icons"></i></a>
@@ -16,9 +35,15 @@
         <a href="#"><i class="fa fa-facebook social-media-icons"></i></a>
     </div>
     <button class="profile-button accordion">Contact</button>
+
     <div class="panel">
-        <p>@User.Identity.Name</p>
+        <p>
+            <% if (user) {  %>
+            <%= user.username %>
+            <% } %>
+        </p>
     </div>
+
     <button class="profile-button accordion">About Artist</button>
     <div class="panel">
         <p>about artist description placeholder</p>
