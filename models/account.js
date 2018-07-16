@@ -8,9 +8,13 @@ var plm = require('passport-local-mongoose');
 
 // define the user schema
 var AccountSchema = new mongoose.Schema({
-    username: String,
+    username: String, // email
     firstname: String,
     lastname: String,
+    profession: String,
+    country: String,
+    provinceState: String,
+    city: String,
     oauthID: String,
     created: Date
 });
