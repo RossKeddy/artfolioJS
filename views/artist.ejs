@@ -3,7 +3,8 @@
 
 <!-- Static navbar -->
 
-<<div class="card profile-card-orientation">
+<div class="artist-background">
+<div class="card profile-card-orientation">
     <img src="/images/photographer.jpg" alt="Bobby" style="width:100%">
     <h4>@User.Identity.GetFirstName() @User.Identity.GetLastName()</h4>
     <p class="title">@User.Identity.GetProfession()</p>
@@ -43,7 +44,7 @@
 </script>
 
 <div align="center">
-    <h2>Gallery</h2>
+    <h2 class="gallery-header">Gallery</h2>
     <div class="galleria">
         <img src="/images/brushstroke.jpg" data-title="My title" data-description="My description">
         <img src="/images/brushstroke.jpg">
@@ -77,6 +78,7 @@
         });
     }());
 </script>
+</div>
 
 <!-- footer -->
 <% include partials/footer.ejs %>

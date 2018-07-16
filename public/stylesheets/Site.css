@@ -266,7 +266,8 @@ button {
     margin: auto;
     text-align: center;
     font-family: arial;
-    background-color: #D7B493
+    background-color: #D7B493;
+    outline: black solid 0.75px;
 }
 
 .title {
@@ -384,4 +385,12 @@ div.desc {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.artist-background {
+    background-image: url('../images/hexbackground.jpg');
+}
+
+.gallery-header {
+    color: whitesmoke;
 }
