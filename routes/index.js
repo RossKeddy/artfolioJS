@@ -27,7 +27,11 @@ router.post('/register', function(req, res, next) {
     Account.register(new Account( {
             username: req.body.username,
             firstname: req.body.firstname,
-            lastname: req.body.lastname
+            lastname: req.body.lastname,
+            profession: req.body.profession,
+            country: req.body.country,
+            provinceState: req.body.provinceState,
+            city: req.body.city
         }),
         req.body.password, function(err, account) {
             if (err) {
