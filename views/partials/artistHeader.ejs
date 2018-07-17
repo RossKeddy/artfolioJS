@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ********************************************************************************
+# artfolio                                                                          #
+# Students at Georgian College                                                      #
+# Created by the artfolio team                                                      #
+#                                                                                   #
+********************************************************************************* -->
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="32x32" href="/images/icon.ico">
+
+    <meta name="author" content="artfolio">
+    <meta name="description" content="artfolio is a website that connects artists to the world">
+
+    <title><%= title %></title>
+    <% if (user) {
+        //I like to watch you...
+        console.log(" ");
+        console.log(user.username + " accessed " + title);
+        console.log(" ");
+    } %>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/site.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Galleria -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="/javascripts/galleria/galleria-1.5.7.min.js"></script>
+
+</head>
+<body class="artist-background">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand fas fa-palette" href="~/Home/Index"></a>-->
+            <!-- Search Bar -->
+
+            <p><a href="/">Artfolio</a>
+
+        </div>
+
+        <div id="custom-search-input" >
+            <div style="text-align: right;">
+                <input type="text" class=" search-query form-control" placeholder="Search" />
+                <button class="searchButton" type="button"><a href="/Search">Go</a></button>
+            </div>
+        </div>
+    </div><!--/.nav-collapse -->
+
+    </div><!--/.container-fluid -->
+</nav>
