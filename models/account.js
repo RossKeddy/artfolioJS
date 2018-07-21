@@ -16,7 +16,8 @@ var AccountSchema = new mongoose.Schema({
     provinceState: String,
     city: String,
     oauthID: String,
-    created: Date
+    created: Date,
+    images: [{ data: Buffer, contentType: String }]
 });
 
 // used for configuring options

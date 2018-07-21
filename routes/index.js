@@ -1,9 +1,17 @@
+var fs = require('fs');
+
 var express = require('express');
 var router = express.Router();
+
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' });
 
 // Account model
 var Account = require('../models/account');
 var passport = require('passport');
+
+//
+var btoa = require('btoa');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -75,10 +83,21 @@ router.get('/logout', function(req, res, next) {
 
 /* GET artist page. */
 router.get('/artist', function(req, res, next) {
+    var images = req.user.images.map(function(image) {
+        image.data = btoa(image.data);
+        return image;
+    });
+
     res.render('artist', {
         title: 'artfolio',
-        user: req.user
+        user: req.user,
+        images,
     });
+});
+
+/*TEST ROUTE*/
+router.get('/test', function(req, res, next) {
+    console.log(req.user.images);
 });
 
 /* GET Upload */
@@ -89,11 +108,28 @@ router.get('/upload', function(req, res, next) {
     });
 });
 
-router.post('/upload', function(req, res, next) {
-    res.send(
-        "Hi"
+router.post('/upload', upload.single('Upload'), function (req, res, next) {
+    // req.file is the `avatar` file
+    // req.body will hold the text fields, if there were any
+    console.log(req.file);
+
+    var fileData = fs.readFileSync(req.file.path);
+    var image = {contentType: 'image/png', data: fileData};
+    //Account.findOneAndUpdate({username: req.user.username}, {$push: {images: image }});
+
+    Account.update(
+        { username: req.user.username },
+        { $push: { images: image } },
+        function(error, result) {
+            if (error) {
+                console.error(error);
+            }
+            console.log(result);
+        }
     );
+
+    res.send('message');
     res.end();
-});
+})
 
 module.exports = router;

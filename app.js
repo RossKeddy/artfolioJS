@@ -1,3 +1,5 @@
+var bodyParser = require('body-parser');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -20,6 +22,12 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
 var localStrategy = require('passport-local').Strategy;
+
+app.use(bodyParser.urlencoded({
+    extended: true,
+}));
+
+app.use(bodyParser.json());
 
 // enable the app to use these passport classes
 app.use(flash());

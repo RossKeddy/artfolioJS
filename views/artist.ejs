@@ -71,10 +71,15 @@
 <div align="center">
     <h2 class="gallery-header">Gallery</h2>
     <div class="galleria">
-        <img src="/images/brushstroke.jpg" data-title="My title" data-description="My description">
-        <img src="/images/brushstroke.jpg">
-        <img src="/images/brushstroke.jpg">
-        <img src="/images/brushstroke.jpg">
+        <!--<img src="/images/brushstroke.jpg" data-title="My title" data-description="My description">-->
+        <!--<img src="/images/brushstroke.jpg">-->
+        <!--<img src="/images/brushstroke.jpg">-->
+        <!--<img src="/images/brushstroke.jpg">-->
+
+        <% for (var i = 0; i < user.images.length; i++) { %>
+        <img src="data:image/png;base64, <%= images[i].data %>">
+        <% } %>
+
     </div>
 </div>
 <script>
