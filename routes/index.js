@@ -81,4 +81,19 @@ router.get('/artist', function(req, res, next) {
     });
 });
 
+/* GET Upload */
+router.get('/upload', function(req, res, next) {
+    res.render('upload', {
+        title: 'upload',
+        user: req.user
+    });
+});
+
+router.post('/upload', function(req, res, next) {
+    res.send(
+        "Hi"
+    );
+    res.end();
+});
+
 module.exports = router;
