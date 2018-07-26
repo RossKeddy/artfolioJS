@@ -70,7 +70,7 @@ router.get('/login', function(req, res, next) {
 
 /* POST login page */
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/artist',
     failureRedirect: '/login',
     failureMessage: 'Invalid Login'  // stored in session.messages
 }));
@@ -92,6 +92,14 @@ router.get('/artist', function(req, res, next) {
         title: 'artfolio',
         user: req.user,
         images,
+    });
+});
+
+/* GET home page. */
+router.get('/search', function(req, res, next) {
+    res.render('search', {
+        title: 'Search',
+        user: req.user
     });
 });
 
