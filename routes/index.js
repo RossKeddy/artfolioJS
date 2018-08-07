@@ -7,7 +7,7 @@ var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' });
 
 // Account model
-var Account = require('../models/account');
+var Artist = require('../models/account');
 var passport = require('passport');
 
 //
@@ -95,13 +95,25 @@ router.get('/artist', function(req, res, next) {
     });
 });
 
-/* GET home page. */
+/* GET search page. */
+
 router.get('/search', function(req, res, next) {
-    res.render('search', {
-        title: 'Search',
-        user: req.user
+    // use the Drink model to query the db for drink data
+    Artist.find(function(err, artists) {
+        if (err) {
+            console.log(err);
+            res.render('error');
+        }
+        else {
+            // load the drinks page and pass the query result
+            res.render('search', {
+                title: 'All the Booze That\'s Fit to Drink',
+                artists : artists
+            });
+        }
     });
 });
+
 
 /*TEST ROUTE*/
 router.get('/test', function(req, res, next) {
