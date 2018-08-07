@@ -7,7 +7,7 @@ var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' });
 
 // Account model
-var Artist = require('../models/account');
+var Account = require('../models/account');
 var passport = require('passport');
 
 //
@@ -99,7 +99,7 @@ router.get('/artist', function(req, res, next) {
 
 router.get('/search', function(req, res, next) {
     // use the Drink model to query the db for drink data
-    Artist.find(function(err, artists) {
+    Account.find(function(err, Account) {
         if (err) {
             console.log(err);
             res.render('error');
@@ -108,7 +108,7 @@ router.get('/search', function(req, res, next) {
             // load the drinks page and pass the query result
             res.render('search', {
                 title: 'All the Booze That\'s Fit to Drink',
-                artists : artists
+                Accounts : Accounts
             });
         }
     });
@@ -120,7 +120,6 @@ router.get('/test', function(req, res, next) {
     console.log(req.user.images);
 });
 
-/* GET Upload */
 router.get('/upload', function(req, res, next) {
     res.render('upload', {
         title: 'upload',
@@ -141,15 +140,13 @@ router.post('/upload', upload.single('Upload'), function (req, res, next) {
         { username: req.user.username },
         { $push: { images: image } },
         function(error, result) {
-            if (error) {
-                console.error(error);
-            }
-            console.log(result);
+            res.render('artist', {
+                title: 'art',
+                user: req.user
+            });
         }
     );
-
-    res.send('message');
-    res.end();
-})
+    res.redirect('/artist');
+});
 
 module.exports = router;
