@@ -148,5 +148,4 @@ router.post('/upload', upload.single('Upload'), function (req, res, next) {
     );
     res.redirect('/artist');
 });
-
 module.exports = router;
